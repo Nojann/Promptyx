@@ -18,7 +18,7 @@ export default class OpenAIService {
       const promptImported = execution.prompt
 
       // Construire le prompt
-      const prompt = `#Document: ${document}\n#Prompt: ${promptImported}`
+      const prompt = `#Prompt: ${promptImported}\n#Document: ${document}`
 
       // Faire l'appel à OpenAI avec le prompt
       const completion = await this.openai.chat.completions.create({
