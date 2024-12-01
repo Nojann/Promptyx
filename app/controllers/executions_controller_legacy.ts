@@ -1,5 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import Execution from '#models/execution'
+import Execution from '#models/execution_legacy'
 import OpenAIService from '#services/openai_service'
 
 export default class ExecutionsController {

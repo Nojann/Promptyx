@@ -1,5 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import Prompt from '#models/prompt'
+import Prompt from '#models/prompt_legacy'
 
 export default class PromptsController {
   /**

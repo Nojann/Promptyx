@@ -12,6 +12,15 @@ export default class extends BaseSchema {
       table.string('file_mime_type', 100).nullable() // VARCHAR(100), NULLABLE
       table.enu('output_type', ['TEXT', 'FILE']).notNullable() // ENUM, NOT NULL
 
+      table
+        .integer('prompt_id')
+        .unsigned() // Ensures the value is positive
+        .notNullable()
+        .references('prompt_id') // References the foreign key column
+        .inTable('prompts') // Name of the referenced table
+        .onDelete('CASCADE') // Optional: define behavior on delete
+        .onUpdate('CASCADE') // Optional: define behavior on update
+
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

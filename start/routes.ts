@@ -1,7 +1,7 @@
 import Route from '@adonisjs/core/services/router'
 
-const ExecutionsController = () => import('#controllers/executions_controller')
-const PromptController = () => import('#controllers/prompts_controller')
+/*const ExecutionsController = () => import('#controllers/executions_controller')
+const PromptController = () => import('#controllers/prompts_controller_legacy')
 
 Route.group(() => {
   Route.resource('prompts', PromptController).apiOnly()
@@ -11,4 +11,4 @@ Route.group(() => {
   Route.post('/executions', [ExecutionsController, 'store'])
   Route.get('/executions/:id', [ExecutionsController, 'show'])
   Route.delete('/executions/:id', [ExecutionsController, 'destroy'])
-}).prefix('/api')
+}).prefix('/api')*/

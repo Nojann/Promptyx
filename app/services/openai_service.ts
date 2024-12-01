@@ -1,6 +1,6 @@
 //Import the OpenAI API client
 import OpenAI from 'openai'
-import Execution from '#models/execution'
+//import Execution from '#models/execution_legacy'
 export default class OpenAIService {
   //Create an instance of the OpenAI client
   private openai: OpenAI

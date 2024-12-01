@@ -3,28 +3,21 @@ import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 import { BaseModel, column, belongsTo } from '@adonisjs/lucid/orm'
 import Prompt from '#models/prompt'
 
-export default class Execution extends BaseModel {
+export default class Output extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
   @column()
-  declare promptId: number
+  declare outputContent: string | null
 
   @column()
-  declare document: string
-
-  // Erreur avec SQLite
-
-  // @column()
-  // declare params: Record<string, any>
-
-  // @column()
-  // declare response: Record<string, any>
+  declare filePath: string | null
 
   @column()
-  declare params: string
+  declare fileMimeType: string | null
+
   @column()
-  declare response: string
+  declare outputType: 'TEXT' | 'FILE'
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -32,6 +25,6 @@ export default class Execution extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(() => Prompt, { foreignKey: 'promptId' })
-  declare prompt: BelongsTo<typeof Prompt>
+  @belongsTo(() => Prompt, { foreignKey: 'outputParameterId' })
+  declare outputParameter: BelongsTo<typeof Prompt>
 }
