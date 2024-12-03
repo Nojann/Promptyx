@@ -1,6 +1,7 @@
-//Import the OpenAI API client
+
 import OpenAI from 'openai'
-//import Execution from '#models/execution_legacy'
+import Instruction from '#models/instruction'
+
 export default class OpenAIService {
   //Create an instance of the OpenAI client
   private openai: OpenAI
@@ -11,25 +12,25 @@ export default class OpenAIService {
     })
   }
 
-  async generateText(execution: Execution): Promise<string> {
+  async generateOutput(contextContent: string, instructions: Instruction): Promise<string> {
     try {
-      // Récupérer le document et le contenu du prompt à partir de execution
-      const document = execution.document
-      const promptImported = execution.prompt
+      const instructionDescription = instructions.instructionDescription
 
-      // Construire le prompt
-      const prompt = `#Prompt: ${promptImported}\n#Document: ${document}`
+      const commandPrompt = `
+      #Instruction: ${instructionDescription}
+      #Context: ${contextContent}
+      Generate the output based on the instruction and the context.
+      `
 
-      // Faire l'appel à OpenAI avec le prompt
       const completion = await this.openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: prompt }],
+        messages: [{ role: 'user', content: commandPrompt }],
       })
 
-      // Retourner la réponse de l'API
       return completion.choices[0].message.content || 'OpenAI error'
+      
     } catch (error) {
-      console.error("Erreur lors de l'appel à OpenAI:", error)
+      console.error("Error during OpenAI API call:", error)
       throw error
     }
   }

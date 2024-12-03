@@ -3,7 +3,7 @@ import type { HasMany } from '@adonisjs/lucid/types/relations'
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import Prompt from '#models/prompt'
 
-export default class Generative extends BaseModel {
+export default class GenerativeAlgorithm extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 

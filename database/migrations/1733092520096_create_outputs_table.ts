@@ -16,7 +16,7 @@ export default class extends BaseSchema {
         .integer('prompt_id')
         .unsigned() // Ensures the value is positive
         .notNullable()
-        .references('prompt_id') // References the foreign key column
+        .references('id') // References the foreign key column
         .inTable('prompts') // Name of the referenced table
         .onDelete('CASCADE') // Optional: define behavior on delete
         .onUpdate('CASCADE') // Optional: define behavior on update
