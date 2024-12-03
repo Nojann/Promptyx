@@ -20,7 +20,7 @@ Route.group(() => {
   Route.get('/instruction/:id', [InstructionsController, 'show'])
   Route.get('/instructions', [InstructionsController, 'index'])
   Route.put('/instruction/:id', [InstructionsController, 'update'])
-  Route.delete('/instruction/:id', [InstructionsController, 'destroy'])
+  // Route.delete('/instruction/:id', [InstructionsController, 'destroy'])
 }).prefix('/api')
 
 Route.group(() => {

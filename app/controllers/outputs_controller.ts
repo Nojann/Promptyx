@@ -10,30 +10,13 @@ export default class OutputsController {
     async index({ response }: HttpContext) {
         try {
             const outputs = await Output.all()
-            return response.json(outputs)
+            return response.status(200).json(outputs)
 
         } catch (error) {
             return response.status(500).json({
                 message: 'Failed to retrieve outputs',
                 error: error.message,
             })
-        }
-    }
-
-    /**
-    * create output
-    */
-    async store({ request, response }: HttpContext) {
-        try {
-            
-            //todo
-
-        } catch (error) {
-            return response.status(500).json({
-                message: 'Failed to create output',
-                error: error.message,
-            })
-           
         }
     }
 

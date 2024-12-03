@@ -9,7 +9,7 @@ export default class InstructionsController {
     async index({ response }: HttpContext) {
         try {
             const instructions = await Instruction.all()
-            return response.json(instructions)
+            return response.status(200).json(instructions)
 
         } catch (error) {
             return response.status(500).json({
@@ -72,19 +72,19 @@ export default class InstructionsController {
     }
 
     /**
-    * delete instruction 
+    * delete instruction TODO
     */
-    async destroy({ params, response }: HttpContext) {
-        try {
-            const instruction = await Instruction.findOrFail(params.id)
-            // delete instruction
-            await instruction.delete()
+    // async destroy({ params, response }: HttpContext) {
+    //     try {
+    //         const instruction = await Instruction.findOrFail(params.id)
+    //         // delete instruction
+    //         await instruction.delete()
 
-        } catch (error) {
-            return response.status(500).json({
-                message: 'Failed to delete instruction',
-                error: error.message,
-            })
-        }
-    }
+    //     } catch (error) {
+    //         return response.status(500).json({
+    //             message: 'Failed to delete instruction',
+    //             error: error.message,
+    //         })
+    //     }
+    // }
 }
