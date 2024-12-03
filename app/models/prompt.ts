@@ -3,9 +3,9 @@ import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import { BaseModel, column, belongsTo, hasMany } from '@adonisjs/lucid/orm'
 import Instruction from '#models/instruction'
 import Context from '#models/context'
-import Generative from '#models/generative'
-import OutputParam from '#models/output_param'
-
+import GenerativeAlgorithm from '#models/generative_algorithm'
+import OutputParameter from '#models/output_parameter'
+import Output from '#models/output'
 export default class Prompt extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
@@ -20,7 +20,7 @@ export default class Prompt extends BaseModel {
   declare outputParameterId: number
 
   @column()
-  declare modelId: number
+  declare generativeAlgorithmId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -28,18 +28,18 @@ export default class Prompt extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(() => Instruction, { foreignKey: 'promptId' })
-  declare prompt: BelongsTo<typeof Instruction>
+  @belongsTo(() => Instruction, { foreignKey: 'instructionId' })
+  declare instruction: BelongsTo<typeof Instruction>
 
   @belongsTo(() => Context, { foreignKey: 'contextId' })
   declare context: BelongsTo<typeof Context>
 
-  @belongsTo(() => Generative, { foreignKey: 'modelId' })
-  declare model: BelongsTo<typeof Generative>
+  @belongsTo(() => GenerativeAlgorithm, { foreignKey: 'generativeAlgorithmId' })
+  declare generativeAlgorithm: BelongsTo<typeof GenerativeAlgorithm>
 
-  @belongsTo(() => OutputParam, { foreignKey: 'outputParameterId' })
-  declare outputParameter: BelongsTo<typeof OutputParam>
+  @belongsTo(() => OutputParameter, { foreignKey: 'outputParameterId' })
+  declare outputParameter: BelongsTo<typeof OutputParameter>
 
-  @hasMany(() => Prompt)
-  declare prompts: HasMany<typeof Prompt>
+  @hasMany(() => Output, { foreignKey: 'outputId' })
+  declare outputs: HasMany<typeof Output>
 }

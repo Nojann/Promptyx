@@ -2,7 +2,6 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Instruction from '#models/instruction'
 
 export default class InstructionsController {
-
     /**
     * get all instructions
     */

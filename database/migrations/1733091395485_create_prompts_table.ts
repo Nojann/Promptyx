@@ -11,29 +11,29 @@ export default class extends BaseSchema {
         .integer('instruction_id')
         .unsigned()
         .notNullable()
-        .references('instruction_id')
+        .references('id')
         .inTable('instructions')
         .onDelete('CASCADE') // INT, NOT NULL, FK
       table
         .integer('context_id')
         .unsigned()
         .notNullable()
-        .references('context_id')
+        .references('id')
         .inTable('contexts')
         .onDelete('CASCADE') // INT, NOT NULL, FK
       table
         .integer('output_parameter_id')
         .unsigned()
         .notNullable()
-        .references('output_parameter_id')
+        .references('id')
         .inTable('output_parameters')
         .onDelete('CASCADE') // INT, NOT NULL, FK
       table
-        .integer('model_id')
+        .integer('generative_algorithm_id')
         .unsigned()
         .notNullable()
-        .references('model_id')
-        .inTable('models')
+        .references('id')
+        .inTable('generative_algorithms')
         .onDelete('CASCADE') // INT, NOT NULL, FK
 
       table.timestamp('created_at')

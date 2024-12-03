@@ -19,12 +19,15 @@ export default class Output extends BaseModel {
   @column()
   declare outputType: 'TEXT' | 'FILE'
 
+  @column()
+  declare promptId: number
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(() => Prompt, { foreignKey: 'outputParameterId' })
-  declare outputParameter: BelongsTo<typeof Prompt>
+  @belongsTo(() => Prompt, { foreignKey: 'promptId' })
+  declare prompt: BelongsTo<typeof Prompt>
 }
