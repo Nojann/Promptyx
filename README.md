@@ -6,8 +6,8 @@
 
 ## 🔮 Next Steps
 
-1. **Cover All Controllers** 🛠️ Ensure full backend functionality by implementing and testing all defined controllers.
-2. **Develop Front-End** 🎨 Build an intuitive interface that connects seamlessly with the backend API.
+1. **Cover All Controllers** Ensure full backend functionality by implementing and testing all defined controllers.
+2. **Develop Front-End** Build an intuitive interface that connects seamlessly with the backend API.
 
 ---
 
