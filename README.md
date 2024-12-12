@@ -17,7 +17,7 @@
   Organize all your prompts in one place for easy access and coordination.
 
 - **🎛️ Customization**
-  Tailor prompts with adjustable parameters to fit any task.
+  Create prompts with adjustable parameters to fit any task.
 
 - **⚙️ Automation**
   Save time and maintain consistency with automated workflows.
