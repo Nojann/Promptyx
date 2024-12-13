@@ -2,6 +2,7 @@
 
 **Promptyx** is a system designed to streamline the creation, organization, and reuse of predefined prompts for various tasks. Whether you're generating content, automating workflows, or creating custom instructions, Promptyx provides a customizable tool to simplify these processes.
 
+v0.1.0-alpha - UNSTABLE
 ---
 
 ## 🔮 Next Steps
